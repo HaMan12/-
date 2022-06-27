@@ -33,7 +33,11 @@
     a:hover:after{
         left: 0;
         right: 0;
-    }   
+       
+    } 
+    .nav-item a:hover{
+      color: #ff0;
+    }  
       .container{
           border: 5px solid green;
           border-radius: 30px;          
@@ -50,6 +54,7 @@
       .item p{
         
         font-size: 20px;
+        
       }
       .banner p{
           font-size: 20px;
@@ -80,6 +85,7 @@
         justify-content: center;
         flex-direction: column;
         border-style: none;
+        height: 100%;
       }
       .item1{
         margin: 100px 0 0 0px;
@@ -92,7 +98,7 @@
       .wrap{
         width: 100%;
         display: flex;
-        margin: 50px 0 0 0 ;
+        margin: 50px 0 -100px 0 ;
       }
       .item3{
         width: 25%;
@@ -114,18 +120,28 @@
         justify-content: center;
         flex-direction: column;
         opacity: 0;
-        transition:opacity .5s;
-       
+        transition:opacity .5s;   
       }
       .item3:hover .txt{
-       opacity: 1;
-       
+       opacity: 1;      
       }
-      .item3 .txt h2{
+      .item3 h2{
         font-size: 40px;
         color: #ff0;
         font-weight: 500;
         text-align: center;
+      }
+      .item3 h2:after{
+        content:'';
+        display: block;
+        width: 0%;
+        height: 2px;
+        margin: 10px o;
+        background-color: #ff0;
+        transition:width .5s .5s;
+      }
+      .item3:hover h2:after{
+        width: 100%;
       }
       .footer-text {
         display: flex;
@@ -134,8 +150,8 @@
         width: 100%;
     	  text-align: center;
 	      margin: 150px 0 0 ;
-      	padding: 10px 0px;
-	      background-color: gray;
+      	padding: 10px 0px;;
+	      background:linear-gradient(black,white);
 	      color: #f0eff3; 
     }
     .item2 nav{
@@ -148,23 +164,49 @@
       margin: 20px;
       border-bottom: 1px dotted white;
     }
+    .item2 i{
+      padding: 20px;
+    }
+    .item2 a:hover{
+      color: #ff0;
+    }
+    @media (max-width:400px) {
+      .container{
+        display: flex;
+      }
+      .item2 h4 {
+        font-size: 20px;
+        display: flex;
+        color: #ff0;
+      }
+      .item2 a ,i{
+        width: 100px;
+        font-size: 10px;
+        display:block;
+        height: 40px;
+      }
+      .item3 .txt h2{
+        font-size: 20px;
+    }
+   
+  }
   </style>
-  <body style="background-image:url(./圖片/背景.jpeg) ;">
+  <body style="background-image:url(./圖片/背景.jpeg) ; background-repeat:no-repeat; background-size: 100% 100%;">
     <!-- 導覽列 以bootstrap 下去修改 -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">  
           <a class="navbar" href="#"><img src="./圖片/高雄鋼鐵人.png" alt="" width="50" height="30"></a>
-         <strong><p style="padding:20px 500px 0 20px;">陳俊廷</p></strong>         
+                 
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"style="color: azure">
             <span class="navbar-toggler-icon"style="color: azure"></span>
           </button>
           <div class="collapse navbar-collapse " id="navbarSupportedContent" >
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0" >
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
               <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="#" style="color: azure">首頁(個人介紹)</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#" style="color: azure">網頁設計</a>
+                  <a class="nav-link" href="a.html" style="color: azure">網頁設計</a>
               </li>
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: azure">
@@ -192,17 +234,16 @@
           </div>
         </div>
       </nav>
-      <!-- 自介 格線系統 -->
-    
+      <!-- 自介 格線系統 --> 
     <div class="container">
          <div class="row">
-      <div class="card col-4" style="width: 18rem; border: 10px double goldenrod; border-radius: 10px 10px 10px 10px ;margin: 20px;">
+      <div class="card col-4 col-sm-6" style="width: 18rem; border: 10px double goldenrod; border-radius: 10px 10px 10px 10px ;margin: 20px;">
         <img src="./圖片/頭貼.jpg" class="card-img-top" alt="..." id="img">
         <div class="card-body">
           <strong><p class="card-text" style="text-align: center;font-size: 40px;"></p></strong>
         </div>
       </div>
-      <div class="A col-8" style=" margin: auto; ">
+      <div class="A col-sm-6 col-xl-8" style=" margin: auto; ">
           <ul>陳俊廷<hr>
             <li>南華大學資訊管理學系</li>
             <li>手機:0976702155</li>
@@ -215,11 +256,11 @@
                  <p>
                      1.台中人，28歲，2022年畢業於<b>南華大學資訊管理學系</b>
                  </p> 
-                 <br>
+                 
                  <p>
                     2.擅長前端工具包含<mark>:Html，Css，JavaScript，jQuery,Bootstrap</mark>。正在練習串接Api，以及練習使用Vue.js框架。
                 </p> 
-                <br>
+                
                 <p>
                     3.願意傾聽需求，擅長溝通理解，<mark>目標前後端都要會。</mark>
                 </p> 
@@ -232,15 +273,15 @@
       <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" style="background:linear-gradient(45deg,rgb(105, 103, 103) 50%,transparent 50%) center center / 100% 100%
          ,url(./圖片/—Pngtree—blue\ carbon\ background\ with\ sport_1200848.jpg) right center /auto 100%;">   
         <div class="carousel-inner">
-          <div class="carousel-item active " data-bs-interval="5000">
+          <div class="carousel-item active " data-bs-interval="500">
             <img src="./圖片/獎狀1.jpg" class="d-block w-25 mx-auto" alt="...">
              <h2 style="text-align: center;">(Erp)</h2>
           </div>
-          <div class="carousel-item " data-bs-interval="5000">
+          <div class="carousel-item " data-bs-interval="500">
             <img src="./圖片/獎狀2.jpg" class="d-block w-25 mx-auto" alt="...">
             <h2 style="text-align: center;">(創業跨領域專題)</h2>
           </div>
-          <div class="carousel-item" data-bs-interval="5000">
+          <div class="carousel-item" data-bs-interval="500">
             <img src="./圖片/獎狀3.jpg" class="d-block w-25 mx-auto" alt="...">
             <h2 style="text-align:center;">(專題實作)</h2>
           </div>
@@ -255,9 +296,8 @@
         </button>
       </div>
       <!-- 事件 -->
-      
-    <div class="container ">
-      <div class="row">
+    <div class="container">
+      <div class="row" style="height: 200px;;">
         <div class="col-4">
           <div class="item1">
             <img src="./圖片/html.webp" width="80"><br>
@@ -312,8 +352,7 @@
 <div class="footer">
   <div class="footer-text">
     <div class="item2">
-      <h4>關於我</h4>
-      
+      <h4>關於我</h4>     
 			<nav>
 				<a href="#"><i class="fa fa-angle-right"></i>大一班代</a>
 			  <a href="#"><i class="fa fa-angle-right"></i>大二系會副會長</a>
@@ -322,8 +361,7 @@
 			</nav>
     </div>
     <div class="item2">
-      <h4>服務項目</h4>
-     
+      <h4>服務項目</h4>    
 			<nav>
 				<a href="#"><i class="fa fa-angle-right"></i> 前端三兄弟</a>
 				<a href="#"><i class="fa fa-angle-right"></i> Sql 基本語法</a>
@@ -332,10 +370,9 @@
 			</nav>
     </div>
     <div class="item2">
-      <h4>工作時間</h4>
-      
+      <h4>工作時間</h4>      
 			<nav>
-				<a href="#"><i class="fa fa-angle-right"></i> 周一到週五 8:00~17:00</a>
+				<i class="fa fa-angle-right">周一到週五 8:00~17:00</i> 
 			</nav>
     </div>
     <div class="item2">
